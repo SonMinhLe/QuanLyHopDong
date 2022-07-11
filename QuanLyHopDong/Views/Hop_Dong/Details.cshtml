@@ -1,0 +1,101 @@
+﻿@model QuanLyHopDong.Models.Hop_Dong
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+<p>
+    @Html.ActionLink("Tải file", "UploadFile", new { id = Model.ID_Hop_Dong })
+</p>
+<div>
+    <h4>Hop_Dong</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên hợp đồng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ten_Hop_Dong)
+        </dd>
+
+        <dt>
+           Tên công ty
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ten_Cong_Ty)
+        </dd>
+
+        <dt>
+            Ngày ký hợp đồng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ngay_Ky_Hop_Dong)
+        </dd>
+
+        <dt>
+            Ngày kết thúc
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ngay_Ket_Thuc)
+        </dd>
+
+        <dt>
+            Số lượng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.So_Luong)
+        </dd>
+
+        <dt>
+            Đơn giá
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Don_Gia)
+        </dd>
+
+        <dt>
+            Thành tiền
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Thanh_Tien)
+        </dd>
+       
+        <dt>
+           File
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FileName)
+        </dd>
+
+        <dt>
+           Tên hàng hóa
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hang_Hoa.Ten_Hang_Hoa)
+        </dd>
+
+        <dt>
+           Loại hợp đồng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Loai_Hop_Dong.Ten_Loai_Hop_Dong)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_Hop_Dong }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

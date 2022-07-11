@@ -1,0 +1,89 @@
+﻿@model IEnumerable<QuanLyHopDong.Models.Hop_Dong>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Thêm mới", "Create")
+</p>
+<table class="table" id="table">
+    <thead>
+        <tr>
+            <th>
+                Tên hợp đồng
+            </th>
+            <th>
+                Tên công ty
+            </th>
+            <th>
+                Số lượng
+            </th>
+            <th>
+                Đơn giá
+            </th>
+            <th>
+                Thành tiền
+            </th>
+
+            <th>
+                File
+            </th>
+            <th>
+                Hàng hóa
+            </th>
+            <th>
+                Loại hợp đồng
+            </th>
+            <th>
+                Trạng thái
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tbody>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ten_Hop_Dong)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ten_Cong_Ty)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.So_Luong)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Don_Gia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Thanh_Tien)
+                </td>
+
+                <td>
+                    <a href="UploadedFiles\@Html.DisplayFor(modelItem => item.FileName)" download> @Html.DisplayFor(modelItem => item.FileName)</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Hang_Hoa.Ten_Hang_Hoa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Loai_Hop_Dong.Ten_Loai_Hop_Dong)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Trang_Thai)
+                </td>
+                <td style="width: 15%">
+                    @Html.ActionLink("Sửa", "Edit", new { id = item.ID_Hop_Dong }) |
+                    @Html.ActionLink("Xem chi tiết", "Details", new { id = item.ID_Hop_Dong }) |
+                    @Html.ActionLink("Xóa", "Delete", new { id = item.ID_Hop_Dong })|
+                    @Html.ActionLink("Tải File", "UploadFile", new { id = item.ID_Hop_Dong })
+                </td>
+            </tr>
+        </tbody>
+    }
+
+</table>

@@ -1,0 +1,58 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    
+</head>
+
+
+<body>
+    <div class="signinform" >
+
+        <!-- container -->
+        <div class="container">
+            <!-- main content -->
+            <div class="w3l-form-info">
+                <div class="w3_info">
+                    <h2 style="margin-left: 40%">Login</h2>
+                    <form action="Nguoi_Dung/Login" method="post" style="margin-left: 40%">
+                        <div class="input-group">
+                            <span><i class="fas fa-user" aria-hidden="true"></i></span>
+                            <input type="text" name="Ten_Dang_Nhap" placeholder="Username" required="">
+                        </div>
+                        <div class="input-group">
+                            <span><i class="fas fa-key" aria-hidden="true"></i></span>
+                            <input type="Password" name="Mat_Khau" placeholder="Password" required="">
+                        </div>
+
+                        <button class="btn btn-primary" type="submit">Đăng nhập</button>
+                    </form>
+
+                </div>
+            </div>
+            <!-- //main content -->
+        </div>
+        <!-- //container -->
+        <!-- footer -->
+        <div class="footer">
+            <p>
+
+            </p>
+        </div>
+        <!-- footer -->
+    </div>
+
+
+
+</body>
+
+</html>
+

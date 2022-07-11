@@ -1,0 +1,59 @@
+﻿@model QuanLyHopDong.Models.Nghiem_Thu
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Nghiem_Thu</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Ngay_Nghiem_Thu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ngay_Nghiem_Thu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Trang_Thai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Trang_Thai)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hang_Hoa.Ten_Hang_Hoa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hang_Hoa.Ten_Hang_Hoa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hop_Dong.Ten_Hop_Dong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hop_Dong.Ten_Hop_Dong)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nguoi_Dung.Ten_Dang_Nhap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nguoi_Dung.Ten_Dang_Nhap)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_Ngiem_Thu }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

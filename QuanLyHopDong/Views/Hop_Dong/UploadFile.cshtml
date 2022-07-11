@@ -1,0 +1,16 @@
+﻿@model QuanLyHopDong.Models.Hop_Dong
+@{
+    ViewBag.Title = "UploadFile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Tải tệp tin</h2>
+@using (Html.BeginForm("UploadFile", "Hop_Dong", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div>
+        @Html.HiddenFor(model => model.ID_Hop_Dong)
+        @Html.TextBox("file", "", new { type = "file" }) <br />
+        <input type="submit" value="Upload" />
+        @ViewBag.Message
+    </div>
+}
+

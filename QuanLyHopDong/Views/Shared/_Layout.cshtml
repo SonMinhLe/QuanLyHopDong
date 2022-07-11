@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+ 
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("GTNA", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Trang chủ", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Loại hợp đồng", "Index", "Loai_Hop_Dong")</li>
+                    <li>@Html.ActionLink("Hợp đồng", "Index", "Hop_Dong")</li>
+                    <li>@Html.ActionLink("Phụ lục", "Index", "Phu_Luc")</li>
+                    <li>@Html.ActionLink("Nghiệm thu", "Index", "Nghiem_Thu")</li>
+                    <li>@Html.ActionLink("Loại Hàng hóa", "Index", "Loai_Hang")</li>
+                    <li>@Html.ActionLink("Hàng hóa", "Index", "Hang_Hoa")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script>
+        $('#table').DataTable({
+            language: {
+                processing: "Message khi đang tải dữ liệu",
+                search: "Tìm kiếm",
+                lengthMenu: "Số lượng bản ghi trên 1 trang _MENU_ ",
+                info: "Bản ghi từ _START_ đến _END_ Tổng công _TOTAL_ bản ghi",
+                infoEmpty: "Khi không có dữ liệu, Hiển thị 0 bản ghi trong 0 tổng cộng 0 ",
+                infoFiltered: "(Message bổ sung cho info khi không search đc record nào _MAX_)",
+                
+                loadingRecords: "",
+                zeroRecords: "Khi tìm kiếm không match với record nào",
+                emptyTable: "Không có dữ liệu",
+                paginate: {
+                    first: "Trang đầu",
+                    previous: "Trang trước",
+                    next: "Trang sau",
+                    last: "Trang cuối"
+                },
+                aria: {
+                    sortAscending: ": Message khi đang sắp xếp theo column",
+                    sortDescending: ": Message khi đang sắp xếp theo column",
+                }
+            },
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,553 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="QuanLyHopDongModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Hang_Hoa">
+          <Key>
+            <PropertyRef Name="ID_Hang_Hoa" />
+          </Key>
+          <Property Name="ID_Hang_Hoa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ten_Hang_Hoa" Type="nvarchar" MaxLength="200" />
+          <Property Name="ID_Loai_Hang_Hoa" Type="int" />
+          <Property Name="Don_Vi_Tinh" Type="nvarchar" MaxLength="50" />
+          <Property Name="Hang_San_Xuat" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Hop_Dong">
+          <Key>
+            <PropertyRef Name="ID_Hop_Dong" />
+          </Key>
+          <Property Name="ID_Hop_Dong" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ten_Hop_Dong" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="ID_Loai_Hop_Dong" Type="int" />
+          <Property Name="Ten_Cong_Ty" Type="nvarchar" MaxLength="200" />
+          <Property Name="Ngay_Ky_Hop_Dong" Type="date" />
+          <Property Name="Ngay_Ket_Thuc" Type="date" />
+          <Property Name="ID_Hang_Hoa" Type="int" />
+          <Property Name="So_Luong" Type="int" />
+          <Property Name="Don_Gia" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Thanh_Tien" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Trang_Thai" Type="nvarchar" MaxLength="50" />
+          <Property Name="Nguoi_Tao_HD" Type="int" />
+          <Property Name="Ngay_Tao_HD" Type="date" />
+          <Property Name="Nguoi_Cap_Nhat" Type="int" />
+          <Property Name="Ngay_Cap_Nhat" Type="date" />
+          <Property Name="FilePath" Type="nvarchar" MaxLength="100" />
+          <Property Name="FileName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Loai_Hang">
+          <Key>
+            <PropertyRef Name="ID_Loai_Hàng" />
+          </Key>
+          <Property Name="ID_Loai_Hàng" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ten_Loai_Hang" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Loai_Hop_Dong">
+          <Key>
+            <PropertyRef Name="ID_Loai_Hop_Dong" />
+          </Key>
+          <Property Name="ID_Loai_Hop_Dong" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ten_Loai_Hop_Dong" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Nghiem_Thu">
+          <Key>
+            <PropertyRef Name="ID_Ngiem_Thu" />
+          </Key>
+          <Property Name="ID_Ngiem_Thu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nguoi_Nghiem_Thu" Type="int" />
+          <Property Name="Ngay_Nghiem_Thu" Type="date" />
+          <Property Name="ID_Hang_Hoa" Type="int" />
+          <Property Name="ID_Hop_dong" Type="int" />
+          <Property Name="Trang_Thai" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Nguoi_Dung">
+          <Key>
+            <PropertyRef Name="ID_Nguoi_Dung" />
+          </Key>
+          <Property Name="ID_Nguoi_Dung" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ten_Dang_Nhap" Type="varchar" MaxLength="50" />
+          <Property Name="Mat_Khau" Type="varchar" MaxLength="50" />
+          <Property Name="Ho_Ten" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ngay_Sinh" Type="date" />
+          <Property Name="Role" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Phu_Luc">
+          <Key>
+            <PropertyRef Name="ID_Phu_Luc" />
+          </Key>
+          <Property Name="ID_Phu_Luc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="So_Phu_Luc" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Ngay_Ky" Type="date" />
+          <Property Name="Nguoi_Tao_Phu_Luc" Type="int" />
+          <Property Name="Nguoi_Ky_Phu_Luc" Type="nvarchar" MaxLength="50" />
+          <Property Name="Gia_Tri_HD_Truoc" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Gia_Tri_HD_Sau" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="ID_Hop_Dong" Type="int" />
+          <Property Name="FileName" Type="nvarchar" MaxLength="50" />
+          <Property Name="FilePath" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <Association Name="FK_Hang_Hoa_Loai_Hang">
+          <End Role="Loai_Hang" Type="Self.Loai_Hang" Multiplicity="0..1" />
+          <End Role="Hang_Hoa" Type="Self.Hang_Hoa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Loai_Hang">
+              <PropertyRef Name="ID_Loai_Hàng" />
+            </Principal>
+            <Dependent Role="Hang_Hoa">
+              <PropertyRef Name="ID_Loai_Hang_Hoa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Hop_Dong_Hang_Hoa">
+          <End Role="Hang_Hoa" Type="Self.Hang_Hoa" Multiplicity="0..1" />
+          <End Role="Hop_Dong" Type="Self.Hop_Dong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hang_Hoa">
+              <PropertyRef Name="ID_Hang_Hoa" />
+            </Principal>
+            <Dependent Role="Hop_Dong">
+              <PropertyRef Name="ID_Hang_Hoa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Hop_Dong_Loai_Hop_Dong">
+          <End Role="Loai_Hop_Dong" Type="Self.Loai_Hop_Dong" Multiplicity="0..1" />
+          <End Role="Hop_Dong" Type="Self.Hop_Dong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Loai_Hop_Dong">
+              <PropertyRef Name="ID_Loai_Hop_Dong" />
+            </Principal>
+            <Dependent Role="Hop_Dong">
+              <PropertyRef Name="ID_Loai_Hop_Dong" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Nghiem_Thu_Hang_Hoa">
+          <End Role="Hang_Hoa" Type="Self.Hang_Hoa" Multiplicity="0..1" />
+          <End Role="Nghiem_Thu" Type="Self.Nghiem_Thu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hang_Hoa">
+              <PropertyRef Name="ID_Hang_Hoa" />
+            </Principal>
+            <Dependent Role="Nghiem_Thu">
+              <PropertyRef Name="ID_Hang_Hoa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Nghiem_Thu_Hop_Dong">
+          <End Role="Hop_Dong" Type="Self.Hop_Dong" Multiplicity="0..1" />
+          <End Role="Nghiem_Thu" Type="Self.Nghiem_Thu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hop_Dong">
+              <PropertyRef Name="ID_Hop_Dong" />
+            </Principal>
+            <Dependent Role="Nghiem_Thu">
+              <PropertyRef Name="ID_Hop_dong" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Nghiem_Thu_Nguoi_Dung">
+          <End Role="Nguoi_Dung" Type="Self.Nguoi_Dung" Multiplicity="0..1" />
+          <End Role="Nghiem_Thu" Type="Self.Nghiem_Thu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Nguoi_Dung">
+              <PropertyRef Name="ID_Nguoi_Dung" />
+            </Principal>
+            <Dependent Role="Nghiem_Thu">
+              <PropertyRef Name="Nguoi_Nghiem_Thu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Phu_Luc_Hop_Dong">
+          <End Role="Hop_Dong" Type="Self.Hop_Dong" Multiplicity="0..1" />
+          <End Role="Phu_Luc" Type="Self.Phu_Luc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hop_Dong">
+              <PropertyRef Name="ID_Hop_Dong" />
+            </Principal>
+            <Dependent Role="Phu_Luc">
+              <PropertyRef Name="ID_Hop_Dong" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="QuanLyHopDongModelStoreContainer">
+          <EntitySet Name="Hang_Hoa" EntityType="Self.Hang_Hoa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Hop_Dong" EntityType="Self.Hop_Dong" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Loai_Hang" EntityType="Self.Loai_Hang" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Loai_Hop_Dong" EntityType="Self.Loai_Hop_Dong" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Nghiem_Thu" EntityType="Self.Nghiem_Thu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Nguoi_Dung" EntityType="Self.Nguoi_Dung" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Phu_Luc" EntityType="Self.Phu_Luc" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Hang_Hoa_Loai_Hang" Association="Self.FK_Hang_Hoa_Loai_Hang">
+            <End Role="Loai_Hang" EntitySet="Loai_Hang" />
+            <End Role="Hang_Hoa" EntitySet="Hang_Hoa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Hop_Dong_Hang_Hoa" Association="Self.FK_Hop_Dong_Hang_Hoa">
+            <End Role="Hang_Hoa" EntitySet="Hang_Hoa" />
+            <End Role="Hop_Dong" EntitySet="Hop_Dong" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Hop_Dong_Loai_Hop_Dong" Association="Self.FK_Hop_Dong_Loai_Hop_Dong">
+            <End Role="Loai_Hop_Dong" EntitySet="Loai_Hop_Dong" />
+            <End Role="Hop_Dong" EntitySet="Hop_Dong" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Nghiem_Thu_Hang_Hoa" Association="Self.FK_Nghiem_Thu_Hang_Hoa">
+            <End Role="Hang_Hoa" EntitySet="Hang_Hoa" />
+            <End Role="Nghiem_Thu" EntitySet="Nghiem_Thu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Nghiem_Thu_Hop_Dong" Association="Self.FK_Nghiem_Thu_Hop_Dong">
+            <End Role="Hop_Dong" EntitySet="Hop_Dong" />
+            <End Role="Nghiem_Thu" EntitySet="Nghiem_Thu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Nghiem_Thu_Nguoi_Dung" Association="Self.FK_Nghiem_Thu_Nguoi_Dung">
+            <End Role="Nguoi_Dung" EntitySet="Nguoi_Dung" />
+            <End Role="Nghiem_Thu" EntitySet="Nghiem_Thu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Phu_Luc_Hop_Dong" Association="Self.FK_Phu_Luc_Hop_Dong">
+            <End Role="Hop_Dong" EntitySet="Hop_Dong" />
+            <End Role="Phu_Luc" EntitySet="Phu_Luc" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="QuanLyHopDongModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="QuanLyHopDongDBContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Hang_Hoa" EntityType="QuanLyHopDongModel.Hang_Hoa" />
+          <EntitySet Name="Hop_Dong" EntityType="QuanLyHopDongModel.Hop_Dong" />
+          <EntitySet Name="Loai_Hang" EntityType="QuanLyHopDongModel.Loai_Hang" />
+          <EntitySet Name="Loai_Hop_Dong" EntityType="QuanLyHopDongModel.Loai_Hop_Dong" />
+          <EntitySet Name="Nghiem_Thu" EntityType="QuanLyHopDongModel.Nghiem_Thu" />
+          <EntitySet Name="Nguoi_Dung" EntityType="QuanLyHopDongModel.Nguoi_Dung" />
+          <EntitySet Name="Phu_Luc" EntityType="QuanLyHopDongModel.Phu_Luc" />
+          <AssociationSet Name="FK_Hang_Hoa_Loai_Hang" Association="QuanLyHopDongModel.FK_Hang_Hoa_Loai_Hang">
+            <End Role="Loai_Hang" EntitySet="Loai_Hang" />
+            <End Role="Hang_Hoa" EntitySet="Hang_Hoa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Hop_Dong_Hang_Hoa" Association="QuanLyHopDongModel.FK_Hop_Dong_Hang_Hoa">
+            <End Role="Hang_Hoa" EntitySet="Hang_Hoa" />
+            <End Role="Hop_Dong" EntitySet="Hop_Dong" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Nghiem_Thu_Hang_Hoa" Association="QuanLyHopDongModel.FK_Nghiem_Thu_Hang_Hoa">
+            <End Role="Hang_Hoa" EntitySet="Hang_Hoa" />
+            <End Role="Nghiem_Thu" EntitySet="Nghiem_Thu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Hop_Dong_Loai_Hop_Dong" Association="QuanLyHopDongModel.FK_Hop_Dong_Loai_Hop_Dong">
+            <End Role="Loai_Hop_Dong" EntitySet="Loai_Hop_Dong" />
+            <End Role="Hop_Dong" EntitySet="Hop_Dong" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Nghiem_Thu_Hop_Dong" Association="QuanLyHopDongModel.FK_Nghiem_Thu_Hop_Dong">
+            <End Role="Hop_Dong" EntitySet="Hop_Dong" />
+            <End Role="Nghiem_Thu" EntitySet="Nghiem_Thu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Phu_Luc_Hop_Dong" Association="QuanLyHopDongModel.FK_Phu_Luc_Hop_Dong">
+            <End Role="Hop_Dong" EntitySet="Hop_Dong" />
+            <End Role="Phu_Luc" EntitySet="Phu_Luc" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Nghiem_Thu_Nguoi_Dung" Association="QuanLyHopDongModel.FK_Nghiem_Thu_Nguoi_Dung">
+            <End Role="Nguoi_Dung" EntitySet="Nguoi_Dung" />
+            <End Role="Nghiem_Thu" EntitySet="Nghiem_Thu" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Hang_Hoa">
+          <Key>
+            <PropertyRef Name="ID_Hang_Hoa" />
+          </Key>
+          <Property Name="ID_Hang_Hoa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ten_Hang_Hoa" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ID_Loai_Hang_Hoa" Type="Int32" />
+          <Property Name="Don_Vi_Tinh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Hang_San_Xuat" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Loai_Hang" Relationship="QuanLyHopDongModel.FK_Hang_Hoa_Loai_Hang" FromRole="Hang_Hoa" ToRole="Loai_Hang" />
+          <NavigationProperty Name="Hop_Dong" Relationship="QuanLyHopDongModel.FK_Hop_Dong_Hang_Hoa" FromRole="Hang_Hoa" ToRole="Hop_Dong" />
+          <NavigationProperty Name="Nghiem_Thu" Relationship="QuanLyHopDongModel.FK_Nghiem_Thu_Hang_Hoa" FromRole="Hang_Hoa" ToRole="Nghiem_Thu" />
+        </EntityType>
+        <EntityType Name="Hop_Dong">
+          <Key>
+            <PropertyRef Name="ID_Hop_Dong" />
+          </Key>
+          <Property Name="ID_Hop_Dong" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ten_Hop_Dong" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ID_Loai_Hop_Dong" Type="Int32" />
+          <Property Name="Ten_Cong_Ty" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Ngay_Ky_Hop_Dong" Type="DateTime" Precision="0" />
+          <Property Name="Ngay_Ket_Thuc" Type="DateTime" Precision="0" />
+          <Property Name="ID_Hang_Hoa" Type="Int32" />
+          <Property Name="So_Luong" Type="Int32" />
+          <Property Name="Don_Gia" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Thanh_Tien" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Trang_Thai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Nguoi_Tao_HD" Type="Int32" />
+          <Property Name="Ngay_Tao_HD" Type="DateTime" Precision="0" />
+          <Property Name="Nguoi_Cap_Nhat" Type="Int32" />
+          <Property Name="Ngay_Cap_Nhat" Type="DateTime" Precision="0" />
+          <Property Name="FilePath" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="FileName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Hang_Hoa" Relationship="QuanLyHopDongModel.FK_Hop_Dong_Hang_Hoa" FromRole="Hop_Dong" ToRole="Hang_Hoa" />
+          <NavigationProperty Name="Loai_Hop_Dong" Relationship="QuanLyHopDongModel.FK_Hop_Dong_Loai_Hop_Dong" FromRole="Hop_Dong" ToRole="Loai_Hop_Dong" />
+          <NavigationProperty Name="Nghiem_Thu" Relationship="QuanLyHopDongModel.FK_Nghiem_Thu_Hop_Dong" FromRole="Hop_Dong" ToRole="Nghiem_Thu" />
+          <NavigationProperty Name="Phu_Luc" Relationship="QuanLyHopDongModel.FK_Phu_Luc_Hop_Dong" FromRole="Hop_Dong" ToRole="Phu_Luc" />
+        </EntityType>
+        <EntityType Name="Loai_Hang">
+          <Key>
+            <PropertyRef Name="ID_Loai_Hàng" />
+          </Key>
+          <Property Name="ID_Loai_Hàng" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ten_Loai_Hang" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Hang_Hoa" Relationship="QuanLyHopDongModel.FK_Hang_Hoa_Loai_Hang" FromRole="Loai_Hang" ToRole="Hang_Hoa" />
+        </EntityType>
+        <EntityType Name="Loai_Hop_Dong">
+          <Key>
+            <PropertyRef Name="ID_Loai_Hop_Dong" />
+          </Key>
+          <Property Name="ID_Loai_Hop_Dong" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ten_Loai_Hop_Dong" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Hop_Dong" Relationship="QuanLyHopDongModel.FK_Hop_Dong_Loai_Hop_Dong" FromRole="Loai_Hop_Dong" ToRole="Hop_Dong" />
+        </EntityType>
+        <EntityType Name="Nghiem_Thu">
+          <Key>
+            <PropertyRef Name="ID_Ngiem_Thu" />
+          </Key>
+          <Property Name="ID_Ngiem_Thu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nguoi_Nghiem_Thu" Type="Int32" />
+          <Property Name="Ngay_Nghiem_Thu" Type="DateTime" Precision="0" />
+          <Property Name="ID_Hang_Hoa" Type="Int32" />
+          <Property Name="ID_Hop_dong" Type="Int32" />
+          <Property Name="Trang_Thai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Hang_Hoa" Relationship="QuanLyHopDongModel.FK_Nghiem_Thu_Hang_Hoa" FromRole="Nghiem_Thu" ToRole="Hang_Hoa" />
+          <NavigationProperty Name="Hop_Dong" Relationship="QuanLyHopDongModel.FK_Nghiem_Thu_Hop_Dong" FromRole="Nghiem_Thu" ToRole="Hop_Dong" />
+          <NavigationProperty Name="Nguoi_Dung" Relationship="QuanLyHopDongModel.FK_Nghiem_Thu_Nguoi_Dung" FromRole="Nghiem_Thu" ToRole="Nguoi_Dung" />
+        </EntityType>
+        <EntityType Name="Nguoi_Dung">
+          <Key>
+            <PropertyRef Name="ID_Nguoi_Dung" />
+          </Key>
+          <Property Name="ID_Nguoi_Dung" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ten_Dang_Nhap" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Mat_Khau" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Ho_Ten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ngay_Sinh" Type="DateTime" Precision="0" />
+          <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Nghiem_Thu" Relationship="QuanLyHopDongModel.FK_Nghiem_Thu_Nguoi_Dung" FromRole="Nguoi_Dung" ToRole="Nghiem_Thu" />
+        </EntityType>
+        <EntityType Name="Phu_Luc">
+          <Key>
+            <PropertyRef Name="ID_Phu_Luc" />
+          </Key>
+          <Property Name="ID_Phu_Luc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="So_Phu_Luc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Ngay_Ky" Type="DateTime" Precision="0" />
+          <Property Name="Nguoi_Tao_Phu_Luc" Type="Int32" />
+          <Property Name="Nguoi_Ky_Phu_Luc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Gia_Tri_HD_Truoc" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Gia_Tri_HD_Sau" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="ID_Hop_Dong" Type="Int32" />
+          <Property Name="FileName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FilePath" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Hop_Dong" Relationship="QuanLyHopDongModel.FK_Phu_Luc_Hop_Dong" FromRole="Phu_Luc" ToRole="Hop_Dong" />
+        </EntityType>
+        <Association Name="FK_Hang_Hoa_Loai_Hang">
+          <End Type="QuanLyHopDongModel.Loai_Hang" Role="Loai_Hang" Multiplicity="0..1" />
+          <End Type="QuanLyHopDongModel.Hang_Hoa" Role="Hang_Hoa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Loai_Hang">
+              <PropertyRef Name="ID_Loai_Hàng" />
+            </Principal>
+            <Dependent Role="Hang_Hoa">
+              <PropertyRef Name="ID_Loai_Hang_Hoa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Hop_Dong_Hang_Hoa">
+          <End Type="QuanLyHopDongModel.Hang_Hoa" Role="Hang_Hoa" Multiplicity="0..1" />
+          <End Type="QuanLyHopDongModel.Hop_Dong" Role="Hop_Dong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hang_Hoa">
+              <PropertyRef Name="ID_Hang_Hoa" />
+            </Principal>
+            <Dependent Role="Hop_Dong">
+              <PropertyRef Name="ID_Hang_Hoa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Nghiem_Thu_Hang_Hoa">
+          <End Type="QuanLyHopDongModel.Hang_Hoa" Role="Hang_Hoa" Multiplicity="0..1" />
+          <End Type="QuanLyHopDongModel.Nghiem_Thu" Role="Nghiem_Thu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hang_Hoa">
+              <PropertyRef Name="ID_Hang_Hoa" />
+            </Principal>
+            <Dependent Role="Nghiem_Thu">
+              <PropertyRef Name="ID_Hang_Hoa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Hop_Dong_Loai_Hop_Dong">
+          <End Type="QuanLyHopDongModel.Loai_Hop_Dong" Role="Loai_Hop_Dong" Multiplicity="0..1" />
+          <End Type="QuanLyHopDongModel.Hop_Dong" Role="Hop_Dong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Loai_Hop_Dong">
+              <PropertyRef Name="ID_Loai_Hop_Dong" />
+            </Principal>
+            <Dependent Role="Hop_Dong">
+              <PropertyRef Name="ID_Loai_Hop_Dong" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Nghiem_Thu_Hop_Dong">
+          <End Type="QuanLyHopDongModel.Hop_Dong" Role="Hop_Dong" Multiplicity="0..1" />
+          <End Type="QuanLyHopDongModel.Nghiem_Thu" Role="Nghiem_Thu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hop_Dong">
+              <PropertyRef Name="ID_Hop_Dong" />
+            </Principal>
+            <Dependent Role="Nghiem_Thu">
+              <PropertyRef Name="ID_Hop_dong" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Phu_Luc_Hop_Dong">
+          <End Type="QuanLyHopDongModel.Hop_Dong" Role="Hop_Dong" Multiplicity="0..1" />
+          <End Type="QuanLyHopDongModel.Phu_Luc" Role="Phu_Luc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hop_Dong">
+              <PropertyRef Name="ID_Hop_Dong" />
+            </Principal>
+            <Dependent Role="Phu_Luc">
+              <PropertyRef Name="ID_Hop_Dong" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Nghiem_Thu_Nguoi_Dung">
+          <End Type="QuanLyHopDongModel.Nguoi_Dung" Role="Nguoi_Dung" Multiplicity="0..1" />
+          <End Type="QuanLyHopDongModel.Nghiem_Thu" Role="Nghiem_Thu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Nguoi_Dung">
+              <PropertyRef Name="ID_Nguoi_Dung" />
+            </Principal>
+            <Dependent Role="Nghiem_Thu">
+              <PropertyRef Name="Nguoi_Nghiem_Thu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="QuanLyHopDongModelStoreContainer" CdmEntityContainer="QuanLyHopDongDBContext">
+          <EntitySetMapping Name="Hang_Hoa">
+            <EntityTypeMapping TypeName="QuanLyHopDongModel.Hang_Hoa">
+              <MappingFragment StoreEntitySet="Hang_Hoa">
+                <ScalarProperty Name="Hang_San_Xuat" ColumnName="Hang_San_Xuat" />
+                <ScalarProperty Name="Don_Vi_Tinh" ColumnName="Don_Vi_Tinh" />
+                <ScalarProperty Name="ID_Loai_Hang_Hoa" ColumnName="ID_Loai_Hang_Hoa" />
+                <ScalarProperty Name="Ten_Hang_Hoa" ColumnName="Ten_Hang_Hoa" />
+                <ScalarProperty Name="ID_Hang_Hoa" ColumnName="ID_Hang_Hoa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Hop_Dong">
+            <EntityTypeMapping TypeName="QuanLyHopDongModel.Hop_Dong">
+              <MappingFragment StoreEntitySet="Hop_Dong">
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+                <ScalarProperty Name="Ngay_Cap_Nhat" ColumnName="Ngay_Cap_Nhat" />
+                <ScalarProperty Name="Nguoi_Cap_Nhat" ColumnName="Nguoi_Cap_Nhat" />
+                <ScalarProperty Name="Ngay_Tao_HD" ColumnName="Ngay_Tao_HD" />
+                <ScalarProperty Name="Nguoi_Tao_HD" ColumnName="Nguoi_Tao_HD" />
+                <ScalarProperty Name="Trang_Thai" ColumnName="Trang_Thai" />
+                <ScalarProperty Name="Thanh_Tien" ColumnName="Thanh_Tien" />
+                <ScalarProperty Name="Don_Gia" ColumnName="Don_Gia" />
+                <ScalarProperty Name="So_Luong" ColumnName="So_Luong" />
+                <ScalarProperty Name="ID_Hang_Hoa" ColumnName="ID_Hang_Hoa" />
+                <ScalarProperty Name="Ngay_Ket_Thuc" ColumnName="Ngay_Ket_Thuc" />
+                <ScalarProperty Name="Ngay_Ky_Hop_Dong" ColumnName="Ngay_Ky_Hop_Dong" />
+                <ScalarProperty Name="Ten_Cong_Ty" ColumnName="Ten_Cong_Ty" />
+                <ScalarProperty Name="ID_Loai_Hop_Dong" ColumnName="ID_Loai_Hop_Dong" />
+                <ScalarProperty Name="Ten_Hop_Dong" ColumnName="Ten_Hop_Dong" />
+                <ScalarProperty Name="ID_Hop_Dong" ColumnName="ID_Hop_Dong" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Loai_Hang">
+            <EntityTypeMapping TypeName="QuanLyHopDongModel.Loai_Hang">
+              <MappingFragment StoreEntitySet="Loai_Hang">
+                <ScalarProperty Name="Ten_Loai_Hang" ColumnName="Ten_Loai_Hang" />
+                <ScalarProperty Name="ID_Loai_Hàng" ColumnName="ID_Loai_Hàng" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Loai_Hop_Dong">
+            <EntityTypeMapping TypeName="QuanLyHopDongModel.Loai_Hop_Dong">
+              <MappingFragment StoreEntitySet="Loai_Hop_Dong">
+                <ScalarProperty Name="Ten_Loai_Hop_Dong" ColumnName="Ten_Loai_Hop_Dong" />
+                <ScalarProperty Name="ID_Loai_Hop_Dong" ColumnName="ID_Loai_Hop_Dong" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Nghiem_Thu">
+            <EntityTypeMapping TypeName="QuanLyHopDongModel.Nghiem_Thu">
+              <MappingFragment StoreEntitySet="Nghiem_Thu">
+                <ScalarProperty Name="Trang_Thai" ColumnName="Trang_Thai" />
+                <ScalarProperty Name="ID_Hop_dong" ColumnName="ID_Hop_dong" />
+                <ScalarProperty Name="ID_Hang_Hoa" ColumnName="ID_Hang_Hoa" />
+                <ScalarProperty Name="Ngay_Nghiem_Thu" ColumnName="Ngay_Nghiem_Thu" />
+                <ScalarProperty Name="Nguoi_Nghiem_Thu" ColumnName="Nguoi_Nghiem_Thu" />
+                <ScalarProperty Name="ID_Ngiem_Thu" ColumnName="ID_Ngiem_Thu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Nguoi_Dung">
+            <EntityTypeMapping TypeName="QuanLyHopDongModel.Nguoi_Dung">
+              <MappingFragment StoreEntitySet="Nguoi_Dung">
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="Ngay_Sinh" ColumnName="Ngay_Sinh" />
+                <ScalarProperty Name="Ho_Ten" ColumnName="Ho_Ten" />
+                <ScalarProperty Name="Mat_Khau" ColumnName="Mat_Khau" />
+                <ScalarProperty Name="Ten_Dang_Nhap" ColumnName="Ten_Dang_Nhap" />
+                <ScalarProperty Name="ID_Nguoi_Dung" ColumnName="ID_Nguoi_Dung" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Phu_Luc">
+            <EntityTypeMapping TypeName="QuanLyHopDongModel.Phu_Luc">
+              <MappingFragment StoreEntitySet="Phu_Luc">
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="ID_Hop_Dong" ColumnName="ID_Hop_Dong" />
+                <ScalarProperty Name="Gia_Tri_HD_Sau" ColumnName="Gia_Tri_HD_Sau" />
+                <ScalarProperty Name="Gia_Tri_HD_Truoc" ColumnName="Gia_Tri_HD_Truoc" />
+                <ScalarProperty Name="Nguoi_Ky_Phu_Luc" ColumnName="Nguoi_Ky_Phu_Luc" />
+                <ScalarProperty Name="Nguoi_Tao_Phu_Luc" ColumnName="Nguoi_Tao_Phu_Luc" />
+                <ScalarProperty Name="Ngay_Ky" ColumnName="Ngay_Ky" />
+                <ScalarProperty Name="So_Phu_Luc" ColumnName="So_Phu_Luc" />
+                <ScalarProperty Name="ID_Phu_Luc" ColumnName="ID_Phu_Luc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

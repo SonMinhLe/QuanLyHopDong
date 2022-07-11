@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8bab66cfbdf44d949e71f3b74d8e1f62" Name="Diagram1" ZoomLevel="55">
+        <EntityTypeShape EntityType="QuanLyHopDongModel.Hang_Hoa" Width="1.5" PointX="7.375" PointY="3" />
+        <EntityTypeShape EntityType="QuanLyHopDongModel.Hop_Dong" Width="1.5" PointX="9.625" PointY="1.75" />
+        <EntityTypeShape EntityType="QuanLyHopDongModel.Loai_Hang" Width="1.5" PointX="5.125" PointY="3.5" />
+        <EntityTypeShape EntityType="QuanLyHopDongModel.Loai_Hop_Dong" Width="1.5" PointX="7.375" PointY="0.5" />
+        <EntityTypeShape EntityType="QuanLyHopDongModel.Nghiem_Thu" Width="1.5" PointX="11.875" PointY="1.875" />
+        <EntityTypeShape EntityType="QuanLyHopDongModel.Nguoi_Dung" Width="1.5" PointX="15.25" PointY="3.5" />
+        <EntityTypeShape EntityType="QuanLyHopDongModel.Phu_Luc" Width="1.5" PointX="11.875" PointY="6.25" />
+        <AssociationConnector Association="QuanLyHopDongModel.FK_Hang_Hoa_Loai_Hang" />
+        <AssociationConnector Association="QuanLyHopDongModel.FK_Hop_Dong_Hang_Hoa" />
+        <AssociationConnector Association="QuanLyHopDongModel.FK_Nghiem_Thu_Hang_Hoa" />
+        <AssociationConnector Association="QuanLyHopDongModel.FK_Hop_Dong_Loai_Hop_Dong" />
+        <AssociationConnector Association="QuanLyHopDongModel.FK_Nghiem_Thu_Hop_Dong" />
+        <AssociationConnector Association="QuanLyHopDongModel.FK_Phu_Luc_Hop_Dong" />
+        <AssociationConnector Association="QuanLyHopDongModel.FK_Nghiem_Thu_Nguoi_Dung" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

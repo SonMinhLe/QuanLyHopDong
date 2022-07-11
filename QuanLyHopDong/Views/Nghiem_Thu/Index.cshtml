@@ -1,0 +1,58 @@
+﻿@model IEnumerable<QuanLyHopDong.Models.Nghiem_Thu>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Ngay_Nghiem_Thu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Trang_Thai)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hang_Hoa.Ten_Hang_Hoa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hop_Dong.Ten_Hop_Dong)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nguoi_Dung.Ten_Dang_Nhap)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ngay_Nghiem_Thu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Trang_Thai)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hang_Hoa.Ten_Hang_Hoa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hop_Dong.Ten_Hop_Dong)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nguoi_Dung.Ten_Dang_Nhap)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID_Ngiem_Thu }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID_Ngiem_Thu }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID_Ngiem_Thu })
+        </td>
+    </tr>
+}
+
+</table>

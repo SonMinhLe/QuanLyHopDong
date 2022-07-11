@@ -1,0 +1,27 @@
+﻿@model QuanLyHopDong.Models.Loai_Hop_Dong
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Loai_Hop_Dong</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Ten_Loai_Hop_Dong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ten_Loai_Hop_Dong)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_Loai_Hop_Dong }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

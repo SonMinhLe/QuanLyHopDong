@@ -1,0 +1,91 @@
+﻿@model QuanLyHopDong.Models.Phu_Luc
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Phu_Luc</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.So_Phu_Luc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.So_Phu_Luc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ngay_Ky)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ngay_Ky)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nguoi_Tao_Phu_Luc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nguoi_Tao_Phu_Luc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nguoi_Ky_Phu_Luc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nguoi_Ky_Phu_Luc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gia_Tri_HD_Truoc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gia_Tri_HD_Truoc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gia_Tri_HD_Sau)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gia_Tri_HD_Sau)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FileName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FileName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FilePath)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FilePath)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hop_Dong.Ten_Hop_Dong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hop_Dong.Ten_Hop_Dong)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_Phu_Luc }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
