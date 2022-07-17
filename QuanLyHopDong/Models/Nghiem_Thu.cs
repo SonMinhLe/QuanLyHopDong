@@ -26,9 +26,11 @@ namespace QuanLyHopDong.Models
         public Nullable<int> ID_Hop_dong { get; set; }
         [Display(Name = "Trạng thái")]
         public string Trang_Thai { get; set; }
-    
+        [Display(Name = "Hàng hóa")]
         public virtual Hang_Hoa Hang_Hoa { get; set; }
+        [Display(Name = "Hợp đồng")]
         public virtual Hop_Dong Hop_Dong { get; set; }
+        [Display(Name = "Người tạo hợp đồng")]
         public virtual Nguoi_Dung Nguoi_Dung { get; set; }
     }
 }

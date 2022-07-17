@@ -44,7 +44,9 @@ namespace QuanLyHopDong.Models
         public Nullable<decimal> Thanh_Tien { get; set; }
         [Display(Name = "Trạng thái")]
         public string Trang_Thai { get; set; }
+        [Display(Name = "Người tạo")]
         public Nullable<int> Nguoi_Tao_HD { get; set; }
+        [Display(Name = "Ngày tạo")]
         public Nullable<System.DateTime> Ngay_Tao_HD { get; set; }
         public Nullable<int> Nguoi_Cap_Nhat { get; set; }
         public Nullable<System.DateTime> Ngay_Cap_Nhat { get; set; }

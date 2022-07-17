@@ -168,7 +168,7 @@ namespace QuanLyHopDong.Controllers
                     db.SaveChanges();
                 }
                 ViewBag.Message = "Tải tệp tin thành công!!";
-                return View();
+                return RedirectToAction("Index");
             }
             catch
             {
